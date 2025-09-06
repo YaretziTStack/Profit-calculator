@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Amores';
+    src: url(Bitten\ Amore\ Free\ Personal\ Use.otf);
+    /*Custom Font Code*/
+}
+
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+}
+
+.container{
+    max-height: 100vh;
+    overflow-y: auto;
+    margin: 20px auto;
+    background-color: rgb(147, 117, 77);
+    border: double red 6px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 20px 50px;
+    border-radius: 10px;
+    box-shadow: 6px 9px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media
+    
+
+h1{
+    color: white;
+    text-decoration: underline red;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    font-family: Amores;
+}
+
+p{
+    color: azure;
+}
+
+label{
+    color: rgb(255, 192, 192);
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-bottom: 10px;
+}
+
+#allItems{
+    color:antiquewhite;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#Allitems{
+    color: aliceblue;
+    text-decoration: underline black;
+}
+
+#totalcost{
+    font-size: 25px;
+}
+
+input{
+    padding: 10px;
+    border: 1px solid aliceblue;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight:lighter;
+    width: 100%;
+}
+
+
+#addItembtn {
+    padding: 8px 15px;
+    background-color: rgb(255, 192, 192);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#itemPricebtn {
+    padding: 8px 15px;
+    background-color: rgb(255, 192, 192);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+ul {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    list-style: none;
+    min-width: 200px;
+  }
+
+ul li {
+    padding: 5px 10px;
+    margin: 4px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+.btn{
+    background-color: rgb(128, 0, 0);
+    border: 1px dashed rgb(255, 240, 240);
+    margin: 30px 0;
+    padding: 10px;
+    color: aliceblue;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    transition: background-color .2s ease;
+}
+
+.btn:hover{
+    background-color: rgba(255, 0, 0, 0.6);
+    color: black;
+    border: 1px dashed rgb(0, 0, 0);
+}
+
+.finalprice{
+    background-color: rgb(128, 0, 0);
+    border: 1px dashed rgb(255, 240, 240);
+    margin: 30px 0;
+    padding: 10px;
+    color: aliceblue;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    transition: background-color .2s ease;
+}
+
+.finalprice:hover{
+    background-color: rgba(255, 0, 0, 0.6);
+    color: black;
+    border: 1px dashed rgb(0, 0, 0);
+}
+
+#total{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top:10px;
+    color: aliceblue;
+}
+#maxprofit{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top:10px;
+    color: aliceblue;
+}
+
+#totalprofit{
+    font-size: 25px;
+}
