@@ -4,8 +4,14 @@
     /*Custom Font Code*/
 }
 
-body{
+*{
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 0;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -26,18 +32,6 @@ body{
     box-shadow: 6px 9px 0 rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 400px){
-    body{
-        margin: 10px;
-        padding: 10px 20px;
-        height: 90vh;
-    }
-    
-    .container{
-        padding: 10px 30px;
-        border-radius: 5px;
-    }
-}
 
 
 h1{
@@ -171,4 +165,34 @@ ul li {
 
 #totalprofit{
     font-size: 25px;
+}
+
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.3rem;
+      }
+    
+      input[type="text"],
+      input[type="number"] {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+    
+      button {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+    
+      ul li {
+        font-size: 0.9rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      ul li button {
+        margin: 5px 0 0;
+        align-self: flex-end;
+      }
 }
