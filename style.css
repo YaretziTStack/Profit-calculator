@@ -81,6 +81,7 @@ input{
 
 
 #addItembtn {
+    margin-bottom: 30px;
     padding: 8px 15px;
     background-color: rgb(255, 192, 192);
     color: white;
@@ -90,12 +91,18 @@ input{
 }
 
 #itemPricebtn {
+    margin-bottom: 30px;
     padding: 8px 15px;
     background-color: rgb(255, 192, 192);
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+}
+
+p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 ul {

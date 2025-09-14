@@ -1,3 +1,5 @@
+const scriptURL = "https://script.google.com/macros/s/AKfycbyav6K4fuJ5ofmXtB9AZRQrOB2n2hA3AW8f9cWuROzSLbY_aRgOTGabIV2-p686yz_rZw/exec"
+
 // Arrays to store items and their prices
 let items = JSON.parse(localStorage.getItem("items")) || [];
 let prices = JSON.parse(localStorage.getItem("prices")) ||[];
@@ -53,6 +55,9 @@ function updateLists() {
   const connectedList = document.getElementById("connectedList"); // Prices list
   const allItemsSpan = document.getElementById("Allitems");   // Display all items
 
+  const totalCostSpan = document.getElementById("totalcost")
+  const totalprofitSpan = document.getElementById("totalprofit")
+
   // Clear old content
   mainList.innerHTML = "";
   connectedList.innerHTML = "";
@@ -91,7 +96,7 @@ function calculateTotal() {
   totalCostStored = total
 
   totalCostSpan.textContent = `$${total.toFixed(2)}`;
-  localStorage.setItem("totalCost", total)
+  localStorage.setItem("totalcost", total)
 }
 
 // Attach calculate function to button
@@ -148,6 +153,38 @@ function saveData(){
   localStorage.setItem("items", JSON.stringify(items))
   localStorage.setItem("prices", JSON.stringify(prices))
 }
-document.querySelector(".finalprice").addEventListener("click", priceTotal);
+document.querySelector(".finalprice").addEventListener("click", ()=> {
+  priceTotal();
+  logToGoogleSheet()
+})
 
-updateLists();
+  updateLists()
+
+//Send Data to googleSheet
+
+function logToGoogleSheet() {
+  const Sheetingredients = document.getElementById("Allitems").textContent
+  const pricesSheet = Array.from(document.querySelectorAll("#connectedList li")).map(li => li.textContent).join(", ")
+  const Sheettotal = document.getElementById("totalcost").textContent
+  const Sheetserving = document.getElementById("serving-sizes").value
+  const Sheetpercentag = document.getElementById("percentage-id").value
+  const Sheetprofit = document.getElementById("totalprofit").textContent
+
+  fetch(scriptURL, {
+    method:"POST",
+    body: JSON.stringify({
+      Sheetingredients,
+      pricesSheet,
+      Sheettotal,
+      Sheetserving,
+      Sheetpercentag,
+      Sheetprofit
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(Response => Response.text())
+  .then(data => console.log("Logged:", data))
+  .catch(error => console.error("Error:", error));
+}
