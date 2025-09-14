@@ -166,7 +166,7 @@ function logToGoogleSheet() {
   const Sheetpercentag = document.getElementById("percentage-id").value
   const Sheetprofit = document.getElementById("totalprofit").textContent
 
-  fetch("https://script.google.com/macros/s/AKfycbyEhUwgD6Wjf1VFxrG6RdXmcFK602VRZ3nyM3HEyAE_yTChsUKTHiDTvt5YWK4OqNOwyQ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbyFSaB4zsS5zK56V5zkrpi19sDISJOqOtHtHSTLx7UiXSLYJRfl5S1PSsep9DBtknX-VA/exec", {
     method:"POST",
     body: JSON.stringify({
       Sheetingredients,
