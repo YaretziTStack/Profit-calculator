@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbyav6K4fuJ5ofmXtB9AZRQrOB2n2hA3AW8f9cWuROzSLbY_aRgOTGabIV2-p686yz_rZw/exec"
+
 
 // Arrays to store items and their prices
 let items = JSON.parse(localStorage.getItem("items")) || [];
@@ -153,10 +153,6 @@ function saveData(){
   localStorage.setItem("items", JSON.stringify(items))
   localStorage.setItem("prices", JSON.stringify(prices))
 }
-document.querySelector(".finalprice").addEventListener("click", ()=> {
-  priceTotal();
-  logToGoogleSheet()
-})
 
   updateLists()
 
@@ -170,7 +166,7 @@ function logToGoogleSheet() {
   const Sheetpercentag = document.getElementById("percentage-id").value
   const Sheetprofit = document.getElementById("totalprofit").textContent
 
-  fetch(scriptURL, {
+  fetch("https://script.google.com/macros/s/AKfycbyEhUwgD6Wjf1VFxrG6RdXmcFK602VRZ3nyM3HEyAE_yTChsUKTHiDTvt5YWK4OqNOwyQ/exec", {
     method:"POST",
     body: JSON.stringify({
       Sheetingredients,
@@ -188,3 +184,8 @@ function logToGoogleSheet() {
   .then(data => console.log("Logged:", data))
   .catch(error => console.error("Error:", error));
 }
+
+document.querySelector(".finalprice").addEventListener("click", ()=> {
+  priceTotal();
+  logToGoogleSheet()
+})
