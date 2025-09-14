@@ -48,6 +48,17 @@
 
     </div>
 
+        <!-- Hidden form for Google Sheets logging -->
+    <form id="sheetForm" action="https://script.google.com/macros/s/AKfycby-3bkvndPFGlE-Z0oAfeTs2fwSdcvU2x2mKln58v4-a5gkKjG0wHnPbA155NTq5Hl2Nw/exec" method="POST" target="hiddenFrame">
+        <input type="hidden" name="Sheetingredients" id="formIngredients">
+        <input type="hidden" name="pricesSheet" id="formPrices">
+        <input type="hidden" name="Sheettotal" id="formTotal">
+        <input type="hidden" name="Sheetserving" id="formServing">
+        <input type="hidden" name="Sheetpercentag" id="formPercent">
+        <input type="hidden" name="Sheetprofit" id="formProfit">
+    </form>
+    <iframe name="hiddenFrame" style="display:none;"></iframe>
+
     <script src="index.js"></script>
 </body>
 

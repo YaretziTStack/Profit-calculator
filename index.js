@@ -159,31 +159,28 @@ function saveData(){
 //Send Data to googleSheet
 
 function logToGoogleSheet() {
-  const Sheetingredients = document.getElementById("Allitems").textContent
-  const pricesSheet = Array.from(document.querySelectorAll("#connectedList li")).map(li => li.textContent).join(", ")
-  const Sheettotal = document.getElementById("totalcost").textContent
-  const Sheetserving = document.getElementById("serving-sizes").value
-  const Sheetpercentag = document.getElementById("percentage-id").value
-  const Sheetprofit = document.getElementById("totalprofit").textContent
+  document.getElementById("formIngredients").value = document.getElementById("Allitems").textContent;
+  document.getElementById("formPrices").value = Array.from(document.querySelectorAll("#connectedList li"))
+    .map(li => li.textContent).join(", ");
+  document.getElementById("formTotal").value = document.getElementById("totalcost").textContent;
+  document.getElementById("formServing").value = document.getElementById("serving-sizes").value;
+  document.getElementById("formPercent").value = document.getElementById("percentage-id").value;
+  document.getElementById("formProfit").value = document.getElementById("totalprofit").textContent;
 
-  fetch("https://script.google.com/macros/s/AKfycbyFSaB4zsS5zK56V5zkrpi19sDISJOqOtHtHSTLx7UiXSLYJRfl5S1PSsep9DBtknX-VA/exec", {
-    method:"POST",
-    body: JSON.stringify({
-      Sheetingredients,
-      pricesSheet,
-      Sheettotal,
-      Sheetserving,
-      Sheetpercentag,
-      Sheetprofit
-    }),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(Response => Response.text())
-  .then(data => console.log("Logged:", data))
-  .catch(error => console.error("Error:", error));
+  // Debug: check values before sending
+  console.log("Sending data:", {
+    Sheetingredients: document.getElementById("formIngredients").value,
+    pricesSheet: document.getElementById("formPrices").value,
+    Sheettotal: document.getElementById("formTotal").value,
+    Sheetserving: document.getElementById("formServing").value,
+    Sheetpercentag: document.getElementById("formPercent").value,
+    Sheetprofit: document.getElementById("formProfit").value
+  });
+
+  // Submit hidden form
+  document.getElementById("sheetForm").submit();
 }
+
 
 document.querySelector(".finalprice").addEventListener("click", ()=> {
   priceTotal();
